@@ -1,17 +1,21 @@
 var express = require("express");
+require("dotenv").config();
 var app = express();
+const mongoose = require("mongoose");
+
+const PORT = process.env.PORT;
 
 app.get("/", function (req, res) {
   res.send("Hello World!");
 });
 
-app.listen(3000, function () {
-  console.log("Example app listening on port 3000!");
+app.listen(PORT, function () {
+  console.log(`Started on ${PORT}`);
 });
 
 const start = async () => {
   try {
-    // await mongoose.connect(process.env.DBURL);
+    await mongoose.connect(process.env.DBURL);
   } catch (e) {
     console.log(e);
   }
