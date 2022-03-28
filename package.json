@@ -1,0 +1,24 @@
+{
+  "name": "test-models",
+  "version": "1.0.0",
+  "description": "schemas, models",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eric-bel/test-models.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "mongo"
+  ],
+  "author": "cyberware",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eric-bel/test-models/issues"
+  },
+  "homepage": "https://github.com/eric-bel/test-models#readme"
+}
