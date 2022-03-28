@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/eric-bel/test-models/issues"
   },
-  "homepage": "https://github.com/eric-bel/test-models#readme"
+  "homepage": "https://github.com/eric-bel/test-models#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
 }
