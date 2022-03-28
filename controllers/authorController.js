@@ -1,4 +1,5 @@
 const dbAuthor = require("../models/author");
+const { v4: uuidv4 } = require("uuid");
 
 class AuthorsControllers {
   async createAuthor(req, res) {
@@ -6,6 +7,7 @@ class AuthorsControllers {
     try {
       const newAuthor = await dbAuthor.create(
         {
+          UserId: uuidv4(),
           username: username,
           email: email,
           password: password,
