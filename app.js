@@ -8,3 +8,14 @@ app.get("/", function (req, res) {
 app.listen(3000, function () {
   console.log("Example app listening on port 3000!");
 });
+
+const start = async () => {
+  try {
+    // await mongoose.connect(process.env.DBURL);
+  } catch (e) {
+    console.log(e);
+  }
+};
+start();
+
+module.exports = app;
