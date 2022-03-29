@@ -5,15 +5,11 @@ class AuthorsControllers {
   async createAuthor(req, res) {
     const { username, email, password } = req.body;
     try {
-      const newAuthor = await dbAuthor.create(
-        {
-          UserId: uuidv4(),
-          username: username,
-          email: email,
-          password: password,
-        },
-        { timestamps: true }
-      );
+      const newAuthor = await dbAuthor.create({
+        username: username,
+        email: email,
+        password: password,
+      });
       if (!newAuthor) {
         res.status(400).json({ message: "Could not create new Author" });
         return;
