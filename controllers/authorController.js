@@ -3,11 +3,12 @@ const { v4: uuidv4 } = require("uuid");
 
 class AuthorsControllers {
   async createAuthor(req, res) {
-    const { username, genre } = req.body;
+    const { username, email, password } = req.body;
     try {
       const newAuthor = await dbAuthor.create({
         username: username,
-        genre: genre,
+        email: email,
+        password: password,
       });
       if (!newAuthor) {
         res.status(400).json({ message: "Could not create new Author" });

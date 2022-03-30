@@ -10,7 +10,7 @@ class BookControllers {
         author,
       });
       if (!newBook) {
-        res.status(400).json({ message: "Could not create new Author" });
+        res.status(400).json({ message: "Could not create new Book" });
         return;
       }
       res.status(200).json(newBook);
@@ -29,23 +29,21 @@ class BookControllers {
   catch(e) {
     res.status(500).json({ message: "Internal Server Error" });
   }
+  // async getBookAuthor(req, res) {
+  //   const bookAuthor = await dbBook
+  //     .findOne({ bookname: "The Interpretation of Dreams" })
+  //     .populate("author");
+  //   if (!bookAuthor.length) {
+  //     res.status(404).json({ message: "Could not find author(s)" });
+  //     return;
+  //   }
+  //   res.status(200).json(bookAuthor);
+  // }
+  // catch(e) {
+  //   res.status(500).json({ message: "Internal Server Error" });
+  // }
   async getBookAuthor(req, res) {
-    const bookAuthor = await dbBook
-      .findOne({ bookname: "Book3" })
-      .populate("author");
-    if (!bookAuthor.length) {
-      res.status(404).json({ message: "Could not find author(s)" });
-      return;
-    }
-    res.status(200).json(bookAuthor);
-  }
-  catch(e) {
-    res.status(500).json({ message: "Internal Server Error" });
-  }
-  async getBookByNAme(req, res) {
-    const oneBookByNAme = await dbBook
-      .find({ bookname: "Book3" })
-      .populate("author")
+    const oneBookByNAme = await dbBook.find(req.body).populate("author");
     if (!oneBookByNAme.length) {
       res.status(404).json({ message: "Could not find book" });
       return;
