@@ -6,13 +6,9 @@ const authorSchema = new Schema(
       type: String,
       required: true,
     },
-    email: {
+    genre: {
       type: String,
       unique: true,
-      required: true,
-    },
-    password: {
-      type: String,
       required: true,
     },
   },
