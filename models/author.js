@@ -8,7 +8,6 @@ const authorSchema = new Schema(
     },
     genre: {
       type: String,
-      unique: true,
       required: true,
     },
   },
