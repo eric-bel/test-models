@@ -3,10 +3,10 @@ const { v4: uuidv4 } = require("uuid");
 
 class AuthorsControllers {
   async createAuthor(req, res) {
-    const { username, email, password } = req.body;
+    const { authorname, email, password } = req.body;
     try {
       const newAuthor = await dbAuthor.create({
-        username: username,
+        authorname: authorname,
         email: email,
         password: password,
       });

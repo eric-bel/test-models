@@ -20,14 +20,15 @@ class BookControllers {
   }
   async getAllBooks(req, res) {
     const AllBooks = await dbBook.find({});
-    if (!AllBooks.length) {
-      res.status(404).json({ message: "Could not find accounts" });
-      return;
+    try {
+      if (!AllBooks.length) {
+        res.status(404).json({ message: "Could not find accounts" });
+        return;
+      }
+      res.status(200).json(AllBooks);
+    } catch (e) {
+      res.status(500).json({ message: "Internal Server Error" });
     }
-    res.status(200).json(AllBooks);
-  }
-  catch(e) {
-    res.status(500).json({ message: "Internal Server Error" });
   }
   // async getBookAuthor(req, res) {
   //   const bookAuthor = await dbBook
@@ -43,15 +44,17 @@ class BookControllers {
   //   res.status(500).json({ message: "Internal Server Error" });
   // }
   async getBookAuthor(req, res) {
-    const oneBookByNAme = await dbBook.find(req.body).populate("author");
-    if (!oneBookByNAme.length) {
-      res.status(404).json({ message: "Could not find book" });
-      return;
+    const oneBookByName = await dbBook.find(req.body).populate("author");
+    try {
+      if (!oneBookByName.length) {
+        res.status(404).json({ message: "Could not find book" });
+        return;
+      }
+      console.log(oneBookByName[0].author.authorname);
+      res.status(200).json(oneBookByName[0].author.authorname);
+    } catch (e) {
+      res.status(500).json({ message: "Internal Server Error" });
     }
-    res.status(200).json(oneBookByNAme);
-  }
-  catch(e) {
-    res.status(500).json({ message: "Internal Server Error" });
   }
 }
 
